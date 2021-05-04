@@ -1,9 +1,9 @@
 [submodule "ConvertData"]
-	path = Convert-Data/
+	path = ConvertData/
 	url = https://github.com/Gustavo-SF/ConvertData.git
 
 [submodule "Deploy-Azure-DB"]
-	path = Deploy-PL-DB/
+	path = Deploy-Azure-DB/
 	url = https://github.com/Gustavo-SF/Deploy-Azure-DB.git
 
 [submodule "Material-Search"]
