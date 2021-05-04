@@ -2,4 +2,5 @@
 azcopy
 
 # raw-data
-data/*
+data/raw-data/
+data/initial-raw-data/
