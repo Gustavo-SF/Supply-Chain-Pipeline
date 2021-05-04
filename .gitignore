@@ -1,0 +1,5 @@
+# azcopy executable for uploading files to ADLS
+azcopy
+
+# raw-data
+data/*
