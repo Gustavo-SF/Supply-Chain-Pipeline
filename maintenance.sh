@@ -50,11 +50,11 @@ sas=$(az storage account generate-sas --permissions cdlruwap --account-name $sto
 cd ConvertData/
 
 # run the Azure FunctionApp deployment script
-bash/maintenance_script.sh
+bash maintenance_script.sh
 
 cd ../Deploy-Azure-DB/
 
 # run the Azure SQL DB deployment script
-bash/maintenance_script.sh
+bash maintenance_script.sh
 
 echo "Completed!"
