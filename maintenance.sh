@@ -44,7 +44,7 @@ sas=$(az storage account generate-sas --permissions cdlruwap --account-name $sto
 ./azcopy rm "https://${storageAccount}.blob.core.windows.net/raw-data/*?${sas}" --recursive
 
 # need to check if rows with headers are correct in the Function App code
-./azcopy copy "Data-Preparation/raw-data/*" "https://${storageAccount}.dfs.core.windows.net/raw-data/?${sas}"  --recursive
+./azcopy copy "data/raw-data/*" "https://${storageAccount}.dfs.core.windows.net/raw-data/?${sas}"  --recursive
 
 
 cd ConvertData/
