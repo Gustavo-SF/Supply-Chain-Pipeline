@@ -4,9 +4,6 @@ resourceGroup="DataScienceThesisRG"
 location="westeurope"
 storageAccount="dsthesissa"
 
-# save the previous data in another folder
-az storage fs create -n old-ready --auth-mode login --account-name $storageAccount
-
 # get the secrets
 source Deploy-Azure-DB/secrets/database_pws.sh
 server=$(az sql server list --query [0].name -o tsv)

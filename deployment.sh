@@ -46,6 +46,12 @@ az storage fs create \
 	--auth-mode login \
 	--account-name $storageAccount
 
+# save the previous data in another folder
+az storage fs create \
+	-n old-ready \
+	--auth-mode login \
+	--account-name $storageAccount
+
 
 echo "Uploading files to storage"
 
