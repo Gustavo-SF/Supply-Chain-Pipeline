@@ -2,5 +2,8 @@
 azcopy
 
 # raw-data
-data/raw-data/
-data/old-data/
+data/*
+!README.md
+
+# Variables & Secrets
+*.env
