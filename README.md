@@ -58,15 +58,6 @@ As a first deployment we upload everything into a Data Lake Storage Account in A
 bash deployment.sh
 ```
 
-We deploy using AZCopy to transfer files from data/deployment into the ADLS deployment/ file storage. 
-
-```bash
-./azcopy copy \
-    "data/raw-data/*" \
-    "https://${storageAccount}.dfs.core.windows.net/raw-data/?${sas}" \
-    --recursive
-```
-
 ## Maintenance Deployment
 
 The maintenance deployment is deployed when the whole infrastructure is already provisioned and we just need to add data on top of what already exists.

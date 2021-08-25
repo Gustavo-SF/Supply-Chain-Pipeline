@@ -1,9 +1,2 @@
-# azcopy executable for uploading files to ADLS
-azcopy
-
-# raw-data
-data/*
-!README.md
-
 # Variables & Secrets
 *.env
