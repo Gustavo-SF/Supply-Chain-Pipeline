@@ -51,6 +51,9 @@ In order to use AZ CLI without having to provide credentials all the time, we pr
 ### Azure Functions Core Tools
 [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash) allows the setting up of the FunctionApp locally and deploying it into the FunctionApp service. 
 
+### Ansible
+[Ansible](https://www.ansible.com/) is for deploying applications to a virtual machine using simple YAML configuration files.
+
 ## Main Deployment
 
 As a first deployment we upload everything into a Data Lake Storage Account in Azure and process all of the data, finalizing with a deployment into an Azure SQL Database. All of this is done by executing the `deployment.sh` file. We can do this by running the following command:

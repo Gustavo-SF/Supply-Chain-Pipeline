@@ -67,11 +67,20 @@ echo "[PPP] Files uploaded and converted using Azure FunctionApp"
 
 # SQL DATABASE
 cd ../Deploy-Azure-DB
-
 # run the Azure SQL DB deployment script
 bash deployment.sh
 
 echo "[PPP] Transformed data has been uploaded into Azure SQL Database."
+
+# Ansible Deployment
+cd ../Material-Search/Material-Search-Processing
+bash deployment.sh
+
+echo "[PPP] Deployment done for material processing code with Ansible."
+
+# Azure Machine Learning Deployment
+cd ../Material-Search-Model-Deployment
+bash deployment.sh
 
 echo "[PPP] Completed!"
 
