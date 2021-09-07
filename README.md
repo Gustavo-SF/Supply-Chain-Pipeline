@@ -12,16 +12,16 @@
 
 The pipeline is divided in **four** sections. The first part is the ETL pipeline. We initially load the data inside a Blob Storage, we use the Azure FunctionApp to transform it with a trigger from the Queue Storage, load it back into the Blob Storage in a cleaned up CSV format. With the file properly formatted, we can then BULK INSERT it into the Azure SQL Database, having it ready to be used by multiple applications[1].
 
-Then we have three applications. The first is the development of a Power BI report that accesses the database and makes use of the created views [2]. The second uses Azure Databricks to process the material prices, and use the results to make new visualizations in Power BI[3]. The final application is a Web App that can be used to search for materials and makes use of two types of processing, both of them with an adapted version of the levenshtein distance. The first processing is done with the whole dataset, making use of KNN for clustering, the clusters are then accessible through the database. The second processing is done on-the-go with a levenshtein model deployed in Azure Machine Learning. In this latter case we are able to make requests to an endpoint to obtain the closest materials.[4].
+Then we have three applications. The first is the development of a Power BI report that accesses the database and makes use of the created views [2]. The second uses Azure Databricks to process the material prices, and use the results to make new visualizations in Power BI[3] (This one has not been developed yet). The final application is a Web App that can be used to search for materials and makes use of two types of processing, both of them with an adapted version of the levenshtein distance. The first processing is done with the whole dataset, making use of Nearest Neighbors with an adapted distance algorithm for clustering, the clusters are then accessible through the database. The second processing is done on-the-go with the same algorithm deployed in Azure Machine Learning. In this latter case we are able to make requests to an endpoint to obtain the closest materials.[4].
 
 Through this repository it is possible to navigate to all of the sections of this project. This includes:
 
 1. **ConvertData**: repository for the python source code for the transformations done in Azure FunctionApp, it also allows to do transformations locally if python is installed;
 2. **Deploy-PL-DB**: repository for the T-SQL source code for the deployment of data into the Azure SQL Database;
-3. **Material-Search**: general repository with the jupyter notebook containing the data exploration for material description comparison algorithm and trained clustering models;
-4. **Material-Search-Deployment**: Deployment of the code into a VM to make the material clusters and to make the model and endpoint deployment into Azure Machine Learning
-5. **Search-App-Code**: The Search-App source code
-4. **Material-Price-Forecasting**: repository for azure databricks deployment containing the jupyter notebook with the forecasting of prices.
+3. **Material-Search**: general repository with the jupyter notebook containing the data exploration for material description comparison algorithm and trained clustering models. This repository also contains the 3 repositories that make up the search application;
+    1. **Material-Search-Processing**: Deployment of the code into a VM to make the material clusters.
+    2. **Material-Search-Model-Deployment**: Deployment of the distance model and endpoint of Azure Machine Learning to calculate and return the closest materials in the database.
+    3. **Material-Search-App**: Deployment of the search application that uses the two other projects to get the closest materials.
 
 ## Requirements
 
@@ -71,9 +71,3 @@ To run this deployment we should just run the following line of code:
 ```bash
 bash maintenance.sh
 ```
-
-
-
-
-
-
